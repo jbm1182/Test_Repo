@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'Master'
+    }
+
+  }
   stages {
     stage('Echo 1') {
       parallel {
@@ -17,7 +22,8 @@ pipeline {
     }
     stage('Echo 2') {
       steps {
-        bat(returnStatus: true, script: 'Get Hostname', encoding: 'hostname')
+        bat(script: 'hostname', encoding: 'hostname')
+        powershell 'hostname'
       }
     }
   }
