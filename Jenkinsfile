@@ -24,6 +24,7 @@ pipeline {
       steps {
         bat(script: 'hostname', encoding: 'hostname')
         powershell 'hostname'
+        build 'TestJob'
       }
     }
   }
