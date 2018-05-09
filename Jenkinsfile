@@ -17,7 +17,7 @@ pipeline {
     }
     stage('Echo 2') {
       steps {
-        echo 'Hello'
+        bat(returnStatus: true, script: 'Get Hostname', encoding: 'hostname')
       }
     }
   }
